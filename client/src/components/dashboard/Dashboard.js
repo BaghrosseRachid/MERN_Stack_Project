@@ -12,17 +12,17 @@ const Dashboard = ({getCurrentProfile,auth:{user},profile : {profile,loading}}) 
     }, []);
 
     return loading && profile === null ?( <Spinner/> ):( <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">Tableau de board</h1>
       <p className="lead">
-          <i className="fas fa-user"></i> Welcome {user && user.name}
+          <i className="fas fa-user"></i> Bienvenue {user && user.name}
       </p>
       {profile!==null ? (<Fragment>
 
       <DashboardAction/>
       </Fragment>):
-      ( <Fragment><p> You have not yet setup a profile , please add some infos</p>
+      ( <Fragment><p> Vous n’avez pas encore créer un profil, s’il vous plaît ajouter quelques infos</p>
                    <Link to= "create-profile" className="btn btn-primary my-1">
-                       create profile
+                       Créer Profile
                    </Link>
       </Fragment>) }
 

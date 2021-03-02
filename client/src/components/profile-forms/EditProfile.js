@@ -74,69 +74,67 @@ const EditProfile = ({profile:{profile,loading},createProfile,getCurrentProfile,
     return (
         <Fragment>
             <h1 className="large text-primary">
-        Create Your Profile
+        Créer Votre Profile
       </h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Let's get some information to make your
-        profile stand out
+        <i className="fas fa-user"></i> Obtenons quelques informations pour que votre profil se démarque
       </p>
-      <small>* = required field</small>
+      <small>* = champ requis</small>
       <form className="form" onSubmit={e=>onSubmit(e)}>
         <div className="form-group">
           <select name="status" value={status} onChange={e=>onchange(e)}>
-            <option value="0">* Select Professional Status</option>
-            <option value="Developer">Developer</option>
-            <option value="Junior Developer">Junior Developer</option>
-            <option value="Senior Developer">Senior Developer</option>
+            <option value="0">* Sélectionnez votre Statut professionnel</option>
+            <option value="Developer">Developpeur</option>
+            <option value="Junior Developer">Développeur Junior</option>
+            <option value="Senior Developer"> Developpeur Senior</option>
             <option value="Manager">Manager</option>
-            <option value="Student or Learning">Student or Learning</option>
-            <option value="Instructor">Instructor or Teacher</option>
+            <option value="Student or Learning">Étudiant ou apprenant</option>
+            <option value="Instructor">Instructeur ou enseignant</option>
             <option value="Intern">Intern</option>
             <option value="Other">Other</option>
           </select>
           <small className="form-text"
-            >Give us an idea of where you are at in your career</small>
+            >Donnez-nous une idée de l’endroit où vous en êtes dans votre carrière</small>
         </div>
         <div className="form-group">
-          <input type="text" placeholder="Company" name="company" value={company} onChange={e=>onchange(e)}  />
+          <input type="text" placeholder="Entreprise" name="company" value={company} onChange={e=>onchange(e)}  />
           <small className="form-text"
-            >Could be your own company or one you work for</small>
+            >Peut-être votre propre entreprise ou celle pour qui vous travaillez</small>
         </div>
         <div className="form-group">
-          <input type="text" placeholder="Website" name="website" value={website} onChange={e=>onchange(e)} />
+          <input type="text" placeholder="Site Web" name="website" value={website} onChange={e=>onchange(e)} />
           <small className="form-text"
-            >Could be your own or a company website</small>
+            >Peut-être votre propre site Web ou un site Web de l’entreprise</small>
         </div>
         <div className="form-group">
           <input type="text" placeholder="Location" name="location" value={location} onChange={e=>onchange(e)}/>
-          <small className="form-text"> City & state suggested (eg. Boston, MA)</small >
+          <small className="form-text"> City & state suggested </small >
         </div>
         <div className="form-group">
-          <input type="text" placeholder="* Skills" name="skills"  value={skills} onChange={e=>onchange(e)}/>
+          <input type="text" placeholder="* Compétences" name="skills"  value={skills} onChange={e=>onchange(e)}/>
           <small className="form-text"
-            >Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)</small>
+            >S’il vous plaît utiliser des valeurs séparées virgule (par exemple. HTML,CSS,JavaScript,PHP)</small>
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Github Username" 
+            placeholder="Nom d’utilisateur Github" 
             name="githubusername"
             value={githubusername} onChange={e=>onchange(e)}
           />
           <small className="form-text"
-            >If you want your latest repos and a Github link, include your
-            username</small >
+            >Si vous souhaitez votre dernier repos et un lien Github, incluez votre nom d’utilisateur</small >
         </div>
         <div className="form-group">
-          <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e=>onchange(e)}></textarea>
-          <small className="form-text">Tell us a little about yourself</small>
+          <textarea placeholder="Une courte biographie de vous-même" name="bio" value={bio} onChange={e=>onchange(e)}></textarea>
+          <small className="form-text">Parlez-nous un peu de vous</small>
         </div>
 
         <div className="my-2">
           <button type="button" onClick={()=>toggleSocialInputs(!displaySocialInputs)} className="btn btn-light">
-            Add Social Network Links
+          Ajouter des liens réseau social
           </button>
-          <span>Optional</span>
+          <span>Optionnel</span>
         </div>
          {displaySocialInputs &&
           ( <Fragment>
@@ -170,7 +168,7 @@ const EditProfile = ({profile:{profile,loading},createProfile,getCurrentProfile,
            )}
       
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
+        <Link className="btn btn-light my-1" to="/dashboard">Retour</Link>
       </form>
         </Fragment>
     )
