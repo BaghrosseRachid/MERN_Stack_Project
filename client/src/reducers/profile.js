@@ -1,4 +1,4 @@
-import {PROFILE_ERROR,GET_PROFILE,CLEAR_PROFILE} from '../actions/types'
+import {PROFILE_ERROR,GET_PROFILE,CLEAR_PROFILE,UPDATE_PROFILE, GET_PROFILES,GET_REPOS} from '../actions/types'
 
 
 const initialeState= {
@@ -14,6 +14,7 @@ export default function (state=initialeState,action ) {
   switch (type) {
       //get profile
       case GET_PROFILE:
+      case UPDATE_PROFILE:
           return {
               ...state,
               profile:payload,
@@ -34,6 +35,19 @@ export default function (state=initialeState,action ) {
               repos:[]
               
           }
+          case GET_PROFILES :
+              return {
+                  ...state,
+                  profiles: payload,
+                  loading:false
+              }
+
+          case GET_REPOS :
+              return {
+                  ...state,
+                  repos:payload,
+                  loading:false
+              }    
   
       default:
           return state;
