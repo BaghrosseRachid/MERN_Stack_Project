@@ -6,6 +6,13 @@
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
+/*dark mode*/
+.dark {
+  background: #000000;
+}
+.dark h1 {
+  color: white;
+}
 
 * {
   box-sizing: border-box;

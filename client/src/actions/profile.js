@@ -27,9 +27,9 @@ export const getCurrentProfile = () =>  async dispatch =>{
 
 export const getProfiles = () =>  async dispatch =>{
 //when they go to the profile list page i want to clear what ever in the current profile 
-dispatch({type: CLEAR_PROFILE});    
+     
     try {
-        const res = await axios.get('api/profile');
+        const res = await axios.get('/api/profile');
         
         dispatch({
             type:GET_PROFILES,
@@ -48,14 +48,16 @@ dispatch({type: CLEAR_PROFILE});
 //get profile by id
 
 export const getProfileById= userId =>  async dispatch =>{
-     
+   
         try {
-            const res = await axios.get(`api/profile/user/${userId}`);
-            
+            const res = await axios.get(`/api/profile/user/${userId}`);
+           
             dispatch({
+
                 type:GET_PROFILE,
                 payload:res.data
             })
+            
         } catch (err) {
             console.log(err.message);
             dispatch({
@@ -69,7 +71,7 @@ export const getProfileById= userId =>  async dispatch =>{
 export const getGithubRepos= username =>  async dispatch =>{
      
         try {
-            const res = await axios.get(`api/profile/github/${username}`);
+            const res = await axios.get(`/api/profile/github/${username}`);
             
             dispatch({
                 type:GET_REPOS,

@@ -15,11 +15,13 @@ useEffect(() => {
             {loading ? <Spinner></Spinner> : <Fragment>
                 <h1 className="large text-primary">Developpeurs</h1>
                 <p className="lead">
-                    <i className="fab fa-connectdevelop"></i> {' '}parcourir et se connecter avec les développeurs
+                    <i className="fab fa-connectdevelop"></i> {' '}
+                    parcourir et se connecter avec les développeurs
                 </p>
                 <div className="profiles">
                 {profiles.length >0 ? (
-                    profiles.map(profile => (<ProfileItem key={profile._id} profile={profile}/>))
+                    profiles.map(profile => (<ProfileItem key={profile._id}
+                         profile={profile}/>))
                 ) 
                 : <h4> Aucun profil trouvé</h4> }
                 </div>
