@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
 import PropTypes from 'prop-types';
+import validator from 'validator'
 
 const Register = ({setAlert,register,isAuthenticated}) => {
     const [formData,setFormData]= useState({
@@ -21,9 +22,9 @@ const Register = ({setAlert,register,isAuthenticated}) => {
      
         if(password!==password2){
             
-            setAlert('mot de passe incorrect','danger');
-        }
-        else{
+          setAlert('mot de passe incorrect','danger');
+      }
+        else {
              register({name,email,password});
         }
     }
@@ -45,7 +46,7 @@ const Register = ({setAlert,register,isAuthenticated}) => {
            />
         </div>
         <div className="form-group">
-          <input type="email" placeholder="Address Email" name="email" 
+          <input type="text" placeholder="Address Email" name="email" 
            value={email}
            onChange={e=> onChange(e)} 
            
@@ -86,7 +87,7 @@ Vous avez déjà un compte? <Link to="/login">Se Connecter</Link>
 }
 Register.propTypes={
   setAlert : PropTypes.func.isRequired,
-  registre: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 }
 const mapStateToProps = state => ({

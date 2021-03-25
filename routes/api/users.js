@@ -11,9 +11,9 @@ const config = require('config');
 // access public
 router.post('/',[
 
-            check('name','name is require').not().isEmpty(),
-            check('email','please include a valid email').isEmail(),
-            check('password','please enter a password with 6 or more characters').isLength({ min : 6 })
+            check('name','nom requis').not().isEmpty(),
+            check('email','veuillez entrer un valid email').isEmail(),
+            check('password',' veuillez entrer un mot de passe avec 6 caractères ou plus').isLength({ min : 6 })
             
             ], 
 
@@ -34,7 +34,7 @@ if(!errors.isEmpty()){
         // case user exists
          if (user){
 
-             return res.status(500).json({errors :[{'message' : 'User already exists'}]});
+             return res.status(500).json({errors :[{msg : 'L’utilisateur existe déjà'}]});
 
          }
 

@@ -36,7 +36,7 @@ const Login = ({login,isAuthenticated}) => {
       <form className="form" onSubmit={e=>onSubmit(e)}>
        
         <div className="form-group">
-          <input type="email" placeholder="Address Email" name="email" 
+          <input type="text" placeholder="Address Email" name="email" 
            value={email}
            onChange={e=> onChange(e)} 
            

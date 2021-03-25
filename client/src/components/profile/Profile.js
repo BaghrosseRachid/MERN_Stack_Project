@@ -18,7 +18,7 @@ const Profile = ({getProfileById,profile:{profile,loading},auth,match}) => {
 useEffect(() => {
 
     getProfileById(match.params.id) //will toggle a get profile action
-    console.log(match.params.id)
+   
    
 
 }, [getProfileById,match.params.id])
@@ -28,9 +28,10 @@ useEffect(() => {
         <Fragment>
           {profile === null || loading ? (<Spinner></Spinner>) :
            (<Fragment>
-              <Link to="/profiles" className="btn btn-light">Retour </Link>
+
+              <Link to="/profiles" className="btn btn-dark my-2" >Retour </Link>
               { auth.isAuthenticated && !auth.loading && auth.user._id === profile.user._id  && (<Link to="/edit-profile" 
-              className="btn btn-light"> Modifier Profile</Link>)}
+              className="btn btn-primary my-2"> Modifier Profile</Link>)}
                 <div className="profile-grid my-1">
                   <ProfileTop profile={profile}></ProfileTop>
                   <ProfileAbout profile={profile}></ProfileAbout>

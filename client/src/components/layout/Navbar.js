@@ -38,12 +38,15 @@ const Navbar = ({auth:{isAuthenticated,loading},logout}) => {
     <ul>
        <li><Link to="/profiles"><i className="far fa-users"></i>
     <span className="hide-sm"> Developpeurs</span></Link></li>
+    <li><Link to="/posts"><i className="fal fa-newspaper"></i>
+    <span className="hide-sm"> Posts</span></Link></li>
+
 
     <li><Link to="/dashboard"><i className="fal fa-user"></i>
      <span className="hide-sm"> Tableau de bord</span></Link></li>
 
-    <li><a href="#!" onClick={logout}><i className="fad fa-sign-out"></i>
-    {' '}<span className="hide-sm"> Se Déconnecter </span></a></li>
+    <li><Link to="/login" onClick={logout}><i className="fad fa-sign-out"></i>
+    {' '}<span className="hide-sm"> Se Déconnecter </span></Link></li>
     <li><Link onClick={()=>{
       setDarkMode(!darkMode)}
     }><i className="fas fa-moon"></i>
@@ -56,8 +59,8 @@ const Navbar = ({auth:{isAuthenticated,loading},logout}) => {
     <ul>
       <li><Link to="/profiles"><i className="far fa-users"></i>
     <span className="hide-sm"> Developpeurs</span></Link></li>
-    <li><Link to="register"><i className="fal fa-user-plus"></i> S'enregistrer</Link></li>
-    <li><Link to="login"><i className="fad fa-sign-in-alt"></i> Se Connecter</Link></li>
+    <li><Link to="/register"><i className="fal fa-user-plus"></i> S'enregistrer</Link></li>
+    <li><Link to="/login"><i className="fad fa-sign-in-alt"></i> Se Connecter</Link></li>
     <li><Link onClick={()=>{
       setDarkMode(!darkMode)}
     }><i className="fas fa-moon"></i>

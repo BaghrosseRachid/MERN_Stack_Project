@@ -36,7 +36,7 @@ try {
   }
   
 }
-const body=JSON.stringify({name,email,password});
+const body= JSON.stringify({name,email,password});
 //send the request
 const res= await axios.post('/api/users',body,config);
 //return token as a data
@@ -47,7 +47,9 @@ dispatch({
   dispatch(loadUser());
 
 
-} catch (err) {
+}
+
+catch (err) {
   const errors= err.response.data.errors;
   if(errors){
       errors.forEach(error => dispatch(setAlert(error.msg,'danger'))); 
@@ -59,7 +61,7 @@ dispatch({
 }
 
 }
-export const login=( email,password)=> async dispatch =>{
+export const login = ( email,password)=> async dispatch =>{
 
  //create the object configuration 
 try {

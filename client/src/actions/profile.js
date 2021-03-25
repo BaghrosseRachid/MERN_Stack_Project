@@ -59,6 +59,7 @@ export const getProfileById= userId =>  async dispatch =>{
             })
             
         } catch (err) {
+            
             console.log(err.message);
             dispatch({
                 type:PROFILE_ERROR,

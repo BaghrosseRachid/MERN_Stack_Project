@@ -32,8 +32,8 @@ router.get('/', auth ,  async (req, res)=>
 router.post('/',[
 
     
-    check('email','please include a valid email').isEmail(),
-    check('password','password is required').notEmpty().exists()
+    check('email','veuillez entrer un valid email').isEmail(),
+    check('password','mot de passe requis').notEmpty().exists()
     
     ], 
 
@@ -53,14 +53,14 @@ try {
 // case user exists
  if (!user){
 
-     return res.status(500).json({errors :[{'message' : 'invalid credentials'}]});
+     return res.status(500).json({errors :[{msg : 'informations d’identification invalides'}]});
 
  }
 
 
   const isMatch = await bcrypt.compare(password, user.password);
   if(!isMatch){
-        return res.status(500).json({errors :[{'message': 'invalid credentials'}]});
+        return res.status(500).json({errors :[{msg: 'informations d’identification invalides'}]});
     }
 
 // return JSONWEBTOKEN
