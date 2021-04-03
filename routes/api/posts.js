@@ -216,8 +216,8 @@ router.delete(
 
       }
       // get remove index
-      const removeIndex = post.comments.map(comment=> comment.user.toString()).indexOf(req.user.id);
-    post.comment.splice(removeIndex,1);
+    const removeIndex = post.comments.map(comment=> comment.user.toString()).indexOf(req.user.id);
+    post.comments.splice(removeIndex,1);
      await post.save();
      //res.send('unliked successfully');
      res.json(post.comments);
