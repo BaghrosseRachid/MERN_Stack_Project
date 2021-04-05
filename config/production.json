@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://rachid_BAGHROSSE:rachid123@mernproject.yzqhe.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret" : "mysecrettoken",
+    "githubClientId": "e0f2da6fbb5525187bc5",
+    "githubSecret":"5f60f61922a1d784c2039fb00577934408e7e9bc"
+}
