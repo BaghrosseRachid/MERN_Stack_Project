@@ -6,6 +6,21 @@ const gravatar = require('gravatar');
 const bcrypt = require ('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const nodemailer = require('nodemailer')
+const sendgridTransport = require('nodemailer-sendgrid-transport')
+
+//
+
+
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth:{
+        api_key:config.get('SENDGRID_API')
+    }
+}))
+
+
+
+
 // route api/users
 // descr register users
 // access public
@@ -62,8 +77,16 @@ if(!errors.isEmpty()){
           user.password = await bcrypt.hash(password, salt);
           //save the user in database
           // give a promisse so we can get the id of user
-          await user.save();
-
+          await user.save()
+           transporter.sendMail({
+            to:user.email,
+            from:"rachid98baghrosse@gmail.com",
+            subject:"Welcome to Baghrosse application ",
+            html:`
+            <h1>Welcome To BAGHROSSE Rachis application</h1>
+           
+            `
+        })
         // return JSONWEBTOKEN
         //create aour payload which is a user
           const payload  = {

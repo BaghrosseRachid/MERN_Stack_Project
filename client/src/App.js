@@ -7,6 +7,7 @@ import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Reset from './components/auth/Reset';
 import {Provider} from 'react-redux';
 import store from './store';
 import Alert from './components/layout/Alert'
@@ -22,6 +23,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import NewPassWord from './components/auth/NewPassWord';
 
 
 //if there is a token add it to the headers
@@ -48,6 +50,8 @@ const  App = ()=>  {
       <Switch>
       <Route exact path='/register' component={Register}/>
       <Route exact path='/login' component={Login}/>
+      <Route exact path='/reset-password' component={Reset}/>
+      <Route exact path='/new-password/:token' component={NewPassWord}/>
       <Route exact path='/profiles' component={Profiles}/>
       <Route exact path='/profile/:id' component={Profile}/>
       <PrivateRoute exact path='/dashboard' component={Dashboard}/>

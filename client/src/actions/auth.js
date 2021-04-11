@@ -98,3 +98,71 @@ export const logout = () => dispatch =>{
   dispatch({type:CLEAR_PROFILE});
   dispatch({type:LOGOUT});
 }
+
+
+//reset password
+export const reset = ( email)=> async dispatch =>{
+   
+
+  localStorage.setItem("email",email)
+  //create the object configuration 
+   const config = {
+   headers : {
+     'Content-type':'application/json'
+   }
+  }
+ 
+ const body=JSON.stringify({email});
+ //send the request
+  await axios.post('/api/auth/reset-password',body,config)
+ //return token as a data
+ .then((res)=>{
+   console.log("into then")
+  dispatch(setAlert("Verifier votre email", "success"))
+  console.log(res.data);
+  
+ })
+ 
+ 
+ .catch ((err) =>{
+   const errors= err.response.data.errors;
+   if(errors){
+       errors.forEach(error => dispatch(setAlert(error.msg,'danger'))); 
+   }
+   
+ })
+ 
+}
+//reset password
+export const newpassword = ( token,password)=> async dispatch =>{
+
+  //create the object configuration 
+   const config = {
+   headers : {
+     'Content-type':'application/json',
+    
+   }
+  }
+ 
+ const body=JSON.stringify({password});
+ //send the request
+
+  await axios.post(`/api/auth/new-password/${token}`,body,config)
+ //return token as a data
+ .then((res)=>{
+   console.log("into then")
+  dispatch(setAlert("Mot de passe ré-initialiser avec succés", "success"))
+  console.log(res.data);
+  
+ })
+ 
+ 
+ .catch ((err) =>{
+   const errors= err.response.data.errors;
+   if(errors){
+       errors.forEach(error => dispatch(setAlert(error.msg,'danger'))); 
+   }
+   
+ })
+ 
+}
